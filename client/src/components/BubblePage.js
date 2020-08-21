@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import Bubbles from "./Bubbles";
 import ColorList from "./ColorList";
+import FetchBubbles from "./FetchBubbles";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 const BubblePage = () => {
@@ -11,12 +12,9 @@ const BubblePage = () => {
   // set that data to the colorList state property
 
   useEffect(() => {
-    axiosWithAuth()
-      .get("/api/colors")
-      .then((res) => {
-        setColorList(res.data);
-      })
-      .catch((err) => console.log(err));
+    FetchBubbles().then((res) => {
+      setColorList(res.data);
+    });
   }, [update]);
 
   return (
