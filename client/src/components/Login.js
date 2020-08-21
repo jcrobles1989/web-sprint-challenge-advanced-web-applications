@@ -19,7 +19,7 @@ const Login = () => {
     });
   };
 
-  const login = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     axios
       .post("http://localhost:5000/api/login", credentials)
@@ -33,7 +33,7 @@ const Login = () => {
   return (
     <>
       <h1>Welcome to the Bubble App!</h1>
-      <form onSubmit={login}>
+      <form onSubmit={handleSubmit}>
         <input
           type="text"
           name="username"
